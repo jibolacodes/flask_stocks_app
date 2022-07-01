@@ -1,6 +1,21 @@
-***Installations***
+# 1. Installations
 1. Flask : pip install flask
 2. Flask-SQLAlchemy : pip install flask-sqlalchemy
+
+# 2. Running Application
+  python app.py
+
+# 2. Creating dynamic pages
+  @app.route('/home/users/<string:name>/posts/<int:id>')
+  def hello(name, id):
+      return "Hello world " + name + ", your id is:" + str(id)
+
+# 2. Using GET or POST HTTP request methods. 
+  *Here we are only requesting so POST gives an error*
+  *Use GET instead*
+  @app.route('/page', methods=['POST'])
+  def get_request():
+      return "You can only get this page"
 
 ***Creating database***
 - Ensure you're on the flask project directory then run "python" in terminal.

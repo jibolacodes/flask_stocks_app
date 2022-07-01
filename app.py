@@ -22,26 +22,15 @@ class BlogPost(db.Model):
     def __repr__(self):
         return 'Blog Post' + str(self.id)
 
-# 1. Creating dynamic pages
-@app.route('/home/users/<string:name>/posts/<int:id>')
-def hello(name, id):
-    return "Hello world " + name + ", your id is:" + str(id)
-
-# 2. Using GET or POST HTTP request methods. 
-# Here we are only requesting so POST gives an error
-# Use GET instead
-@app.route('/page', methods=['POST'])
-def get_request():
-    return "You can only get this page"
-
-# 3. Using templates for the UI
+# Using templates for the UI
 @app.route('/')
 def index():
     return render_template('index.html')
 
-# 4. passing data to webpages
+# Passing data to webpages
 @app.route('/posts', methods=['GET', 'POST'])
 def posts():
+
 #CRUD
 # a. Create and Read
     if request.method == 'POST':
@@ -55,15 +44,6 @@ def posts():
     else:
         all_posts = BlogPost.query.all()
         return render_template('posts.html', posts=all_posts)
-
-
-# c. Delete
-@app.route('/posts/delete/<int:id>')
-def delete(id):
-    post = BlogPost.query.get_or_404(id)
-    db.session.delete(post)
-    db.session.commit()
-    return redirect('/posts')
 
 # b. Edit
 @app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])
@@ -79,6 +59,15 @@ def edit(id):
         return redirect('/posts')
     else:
         return render_template('edit.html', post=post)
+
+# c. Delete
+@app.route('/posts/delete/<int:id>')
+def delete(id):
+    post = BlogPost.query.get_or_404(id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect('/posts')
+
 
 if __name__ == "__main__":
     app.run(debug=True) 
