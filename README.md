@@ -1,3 +1,9 @@
+# Jibolacode's Blog
+#### Video Demo: https://youtu.be/xXL-bfzapqo
+#### A blogsite built with Flask, HTML, CSS and JavaScript. Below is a rundown of the building process.
+
+#### I used Flask to create this blog because it was light weight and I wanted to utilize its backend functionality
+
 # 1. Installations
 1. Flask : pip install flask
 2. Flask-SQLAlchemy : pip install flask-sqlalchemy
@@ -49,7 +55,7 @@
   <!-- index is either 0 or 1 as the list is zero-indexed. -->
   BlogPost.query.all()[index].content
 
-
+*** Methods used in the database ***
 Filter
 BlogPost.query.filter_by(title='First Blog Post!').all()
 
