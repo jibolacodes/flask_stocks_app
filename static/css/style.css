@@ -3,8 +3,8 @@ body {
 }
 
 .post-detail {
-    background-color: grey;
-    color: white;
+    background-color: rgb(243, 243, 243);
+    color: black;
     padding: 5px;
 }
 .post-content {
@@ -13,4 +13,7 @@ body {
 
 .btn-write {
     margin-top: 50px;
+}
+.date {
+    color: grey;
 }

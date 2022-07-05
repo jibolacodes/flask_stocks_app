@@ -36,6 +36,15 @@ def index():
 def posts():
 
   if request.method == 'POST':
+    post_title = request.form['title']
+    post_author = request.form['author']
+    post_content = request.form['content']
+    new_post = BlogPost(title=post_title, content=post_content, author=post_author)
+    # add new_post to the database
+    db.session.add(new_post)
+    # commit to the database
+    db.session.commit()
+    # redirect to same page which shows the new_post
     return redirect('/posts')
   else:
     # getting the items of BlogPost
