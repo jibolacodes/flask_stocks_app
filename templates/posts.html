@@ -6,39 +6,29 @@
 
 {% block body %}
 <h1>All posts</h1>
-<hr>
-<form action="/posts" method="POST">
-    <div>
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title">
-    </div>
-    <div>
-        <label for="author">Author</label>
-        <input type="text" name="author" id="author">
-    </div>
-    <div>
-        <label for="content">Content</label>
-        <input type="text" name="content" id="content">
-    </div>
-    <input type="submit" value="Post">
-</form>
-</hr>
 
+<a class=" btn-write btn btn-dark" href="/posts/write">Write a new post</a>
+
+<div style="margin: 30px 0;">
     {% for post in posts %}
 
-        <h2>{{post.title}}</h2>
+    <h2>{{post.title}}</h2>
 
-        {% if post.author %}
-            <p>produced by: {{post.author}}</p>
-        {% else %}
-            <p>produced by: N/A</p>
-        {% endif %}
+    {% if post.author %}
+    <small class="post-detail">Writen by: <b>{{post.author}}</b> on <i>{{ post.date_posted }}</i></small>
+    {% else %}
+    <small class="post-detail">Writen by: <b>Unknown Author</b> on <i>{{ post.date_posted }}</i></small>
+    {% endif %}
 
-        <p>{{post.content}}</p>
-        <a href="/posts/delete/{{post.id}}">Delete</a>
-        <a href="/posts/edit/{{post.id}}">Edit</a>
-        <hr>
+    <p class="post-content">{{post.content}}</p>
+    <a class="btn btn-danger" href="/posts/delete/{{post.id}}">Delete</a>
+    <a class="btn btn-primary" href="/posts/edit/{{post.id}}">Edit</a>
+    <hr>
 
     {% endfor %}
+</div>
 
 {% endblock %}
+
+
+<!-- Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, aliquid quae porro quidem eius itaque amet qui harum, quo, repellendus sit numquam voluptatibus eligendi vitae aperiam! Esse voluptatem dolorem odio! -->

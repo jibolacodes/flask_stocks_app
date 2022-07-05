@@ -1,9 +1,20 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block head %}
 
-{% block head %}
 <title>Home</title>
-{% endblock %}
-
-{% block body %}
-<h1>Home Page</h1>
+{% endblock %} {% block body %}
+<main role="main" class="container" style="margin: 200px 0;">
+  <div class="jumbotron">
+    <h1>Welcome to Jibolacode's Blog</h1>
+    <p class="lead">
+      This a blog site that features posts created by a team of web developers
+      who are great teachers. This blog is pioneered by Jibolacodes
+    </p>
+    <a
+      class="btn btn-lg btn-primary"
+      href="./posts"
+      role="button"
+      >View Posts &raquo;</a
+    >
+  </div>
+</main>
 {% endblock %}

@@ -1,3 +1,16 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.post-detail {
+    background-color: grey;
+    color: white;
+    padding: 5px;
+}
+.post-content {
+    margin-top: 10px;
+}
+
+.btn-write {
+    margin-top: 50px;
+}
